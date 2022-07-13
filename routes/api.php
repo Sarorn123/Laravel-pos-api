@@ -9,6 +9,10 @@ use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Sell\SellController;
 
 Route::group(['middleware' => ['apiKey']], function () {
+
+    Route::get('/test', function() {
+        return response(["message" => "workinh"]);
+    });
    
 
     Route::post('user/register', [AuthController::class, 'register']);
