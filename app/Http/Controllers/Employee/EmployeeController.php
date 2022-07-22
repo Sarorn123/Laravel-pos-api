@@ -52,10 +52,12 @@ class EmployeeController extends Controller
             "address" => "required",
             "age" => "required",
             "position_id" => "required",
+            "role_id" => "required",
         ]);
 
         $data['name'] = $request->name;
         $data['email'] = $request->email;
+        $data['role_id'] = $request->role_id;
         $data['password'] = Hash::make("123456");
 
         $status = User::where('email', $request->email)->first();

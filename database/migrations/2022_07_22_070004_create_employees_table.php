@@ -26,7 +26,6 @@ class CreateEmployeesTable extends Migration
             $table->string('image')->nullable();
             $table->integer('position_id');
             $table->integer('salary');
-            $table->integer('salary_khr');
             $table->text('address');
             $table->timestamps();
         });

@@ -93,6 +93,19 @@ class AuthController extends Controller
         }
     }
 
+    public function AddRole(Request $request){
+
+        $request->validate([
+            "name" => 'required',
+        ]);
+
+        Role::create($request->all());
+        return response([
+            "message" => "Role Added",
+        ]);
+
+    }
+
     public function all_movies()
     {
         $response = Http::get("https://yts.torrentbay.to/api/v2/list_movies.json");

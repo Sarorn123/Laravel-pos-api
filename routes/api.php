@@ -13,6 +13,9 @@ Route::group(['middleware' => ['apiKey']], function () {
     Route::post('user/register', [EmployeeController::class, 'store']);
     Route::post('user/login', [AuthController::class, 'login']);
 
+    Route::post('addRole', [AuthController::class, 'AddRole']);
+
+
     Route::group(['middleware' => 'auth:sanctum'], function () {
 
         // End Point For Admin
