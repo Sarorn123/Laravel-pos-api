@@ -19,7 +19,7 @@ class Sell extends Model
     use HasFactory;
 
     protected $primaryKey = 'id';
-    protected $table = 'Sell';
+    protected $table = 'sell';
     protected $guarded = ['id'];
 
     public function getCustomer()
