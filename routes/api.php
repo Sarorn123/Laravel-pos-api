@@ -10,11 +10,6 @@ use App\Http\Controllers\Sell\SellController;
 
 Route::group(['middleware' => ['apiKey']], function () {
 
-    Route::get('/test', function() {
-        return response(["message" => "workinh"]);
-    });
-   
-
     Route::post('user/register', [AuthController::class, 'register']);
     Route::post('user/login', [AuthController::class, 'login']);
 
@@ -35,12 +30,10 @@ Route::group(['middleware' => ['apiKey']], function () {
             // Customer //
             Route::apiResource('/customer', CustomerController::class);
             
-
             // Sell //
             Route::apiResource('/sell', SellController::class);
             Route::get('/getSellFormData', [SellController::class, 'getSellFormData']);
             Route::get('/getAnalyticeToday', [SellController::class, 'getAnalyticeToday']);
-
             Route::get('/getDashboardData', [DashboardController::class, 'getDashboardData']);
 
         });
