@@ -31,6 +31,9 @@ Route::group(['middleware' => ['apiKey']], function () {
             Route::apiResource('/employee', EmployeeController::class);
 
             // Customer //
+            Route::post('/AddPosition', [CustomerController::class, 'addPosition']);
+
+            // Customer //
             Route::apiResource('/customer', CustomerController::class);
             
             // Sell //

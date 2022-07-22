@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Customer\CustomerResource;
 use App\Models\Customer\Customer;
+use App\Models\Position\Position;
 use App\Models\Sell\Sell;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -159,5 +160,18 @@ class CustomerController extends Controller
             ], 200);
         }
         
+    }
+
+    public function addPosition(Request $request){
+
+        $request->validate([
+            "name" => "required",
+        ]);
+
+        Position::create($request->all());
+        return response([
+            "message" => "Addedd"
+        ]);
+
     }
 }
