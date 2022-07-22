@@ -51,6 +51,7 @@ class EmployeeController extends Controller
             "salary" => "required",
             "address" => "required",
             "age" => "required",
+            "position_id" => "required",
         ]);
 
         $data['name'] = $request->name;
@@ -65,16 +66,19 @@ class EmployeeController extends Controller
             ]);
         }
 
-        $user =  User::create($data);
-        $request->merge(['user_id' => $user->id]);
-        $employee = Employee::addEmployee($request);
-        return response([
-            "data" => new EmployeeResource($employee),
-            "message" => "create successfully",
-            "success" => true,
-        ]);
-
-
+        try {
+            $user =  User::create($data);
+            $request->merge(['user_id' => $user->id]);
+            $employee = Employee::addEmployee($request);
+            return response([
+                "data" => new EmployeeResource($employee),
+                "message" => "create successfully",
+                "success" => true,
+            ]);
+        } catch (\Throwable $th) {
+            //throw $th;
+            throw $th;
+        }
     }
 
     /**
