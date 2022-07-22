@@ -10,7 +10,7 @@ use App\Http\Controllers\Sell\SellController;
 
 Route::group(['middleware' => ['apiKey']], function () {
 
-    Route::post('user/register', [AuthController::class, 'register']);
+    Route::post('user/register', [EmployeeController::class, 'store']);
     Route::post('user/login', [AuthController::class, 'login']);
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
